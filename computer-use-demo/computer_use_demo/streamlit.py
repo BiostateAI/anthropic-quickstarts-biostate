@@ -45,7 +45,7 @@ STREAMLIT_STYLE = """
 </style>
 """
 
-WARNING_TEXT = "⚠️ Security Alert: Never provide access to sensitive accounts or data, as malicious web content can hijack Claude's behavior"
+WARNING_TEXT = "⚠️ Security Alert: This is a development version of OmicsWeb FSA. Use in controlled-access containers only, and do not grant access to sensitive accounts or data."
 
 
 class Sender(StrEnum):
@@ -77,11 +77,11 @@ def setup_state():
     if "tools" not in st.session_state:
         st.session_state.tools = {}
     if "only_n_most_recent_images" not in st.session_state:
-        st.session_state.only_n_most_recent_images = 10
+        st.session_state.only_n_most_recent_images = 20
     if "custom_system_prompt" not in st.session_state:
         st.session_state.custom_system_prompt = load_from_storage("system_prompt") or ""
     if "hide_images" not in st.session_state:
-        st.session_state.hide_images = False
+        st.session_state.hide_images = True
 
 
 def _reset_model():
@@ -96,7 +96,7 @@ async def main():
 
     st.markdown(STREAMLIT_STYLE, unsafe_allow_html=True)
 
-    st.title("Claude Computer Use Demo")
+    st.title("OmicsWeb Full Self-Analyzing")
 
     if not os.getenv("HIDE_WARNING", False):
         st.warning(WARNING_TEXT)
@@ -164,7 +164,7 @@ async def main():
 
     chat, http_logs = st.tabs(["Chat", "HTTP Exchange Logs"])
     new_message = st.chat_input(
-        "Type a message to send to Claude to control the computer..."
+        "Type a message to send to OmicsWeb FSA for automated analysis of your omics data..."
     )
 
     with chat:

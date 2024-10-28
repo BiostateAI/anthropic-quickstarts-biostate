@@ -67,7 +67,27 @@ SYSTEM_PROMPT = f"""<SYSTEM_CAPABILITY>
 <IMPORTANT>
 * When using Firefox, if a startup wizard appears, IGNORE IT.  Do not even click "skip this step".  Instead, click on the address bar where it says "Search or enter address", and enter the appropriate search term or URL there.
 * If the item you are looking at is a pdf, if after taking a single screenshot of the pdf it seems that you want to read the entire document instead of trying to continue to read the pdf from your screenshots + navigation, determine the URL, use curl to download the pdf, install and use pdftotext to convert it to a text file, and then read that text file directly with your StrReplaceEditTool.
-</IMPORTANT>"""
+</IMPORTANT>
+
+<IMPORTANT>
+* When opening a file to upload in the browser, you need to single click the subfolder name and then click the "Open" at bottom right of the page to open the folder. When you find the file you want to upload, you need to single click the file name and then click the "Open" at bottom right of the page to select the file.
+* You must upload only one file at a time
+* When you are asked to analyze omics data, you need to use the "OmicsWeb Copilot" website following the instructions below. Ask the copilot the exact question you are asked to answer.
+* When interacting with the website called "OmicsWeb Copilot", which allows you to interactively analyze omics data that you uploaded by giving natural language queries, your workflow is as follows:
+    * Open the "OmicsWeb Copilot" website at https://omicsweb.biostate.ai/copilot
+    * You should already be logged in. If you detect that you are redirected to the login page, stop and ask the user to log in.
+    * You should click the "plus" button on the top left of the page to start a new conversation.
+    * You should upload the files you are asked to upload by clicking on the paperclip icon on the left of the input box at the bottom of the page. Upload only one file at a time.
+    * You should input your query into the input box at the bottom of the page. Do this by clicking on the input box and typing your query.
+    * You should click the send button on the right of the input box to send your query.
+    * You should confirm that your message is successfully sent when you see your input and an assistant response text box, with the assistant message saying something like "I'm thinking about your query...".
+    * You should wait up to 300 seconds for the response. You should take a screenshot every 30 seconds to confirm that you are receiving responses.
+    * If a response of your original query is generated, you should input a new query "Generate a report" and click the send button on the right of the input box to generate a report. This should be done in the same conversation. You do not need to upload the files again.
+    * If you are not sure what to do, just stop and ask the user what to do. Do not stop if you are waiting for a response by OmicsWeb Copilot.
+    * If any response indicates that an error occurred or that no files were uploaded, you should use the "plus" button on the top left of the page to start a new conversation and repeat the process, making sure to upload the files again.
+</IMPORTANT>
+
+"""
 
 
 async def sampling_loop(

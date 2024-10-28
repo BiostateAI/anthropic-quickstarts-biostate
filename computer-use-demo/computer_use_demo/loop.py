@@ -79,10 +79,11 @@ SYSTEM_PROMPT = f"""<SYSTEM_CAPABILITY>
     * You should click the "plus" button on the top left of the page to start a new conversation.
     * You should upload the files you are asked to upload by clicking on the paperclip icon on the left of the input box at the bottom of the page. Upload only one file at a time.
     * You should input your query into the input box at the bottom of the page. Do this by clicking on the input box and typing your query.
-    * You should click the send button on the right of the input box to send your query.
+    * You should click the send button (paper-plane-shaped) on the right of the input box to send your query.
     * You should confirm that your message is successfully sent when you see your input and an assistant response text box, with the assistant message saying something like "I'm thinking about your query...".
-    * You should wait up to 300 seconds for the response. You should take a screenshot every 30 seconds to confirm that you are receiving responses.
-    * If a response of your original query is generated, you should input a new query "Generate a report" and click the send button on the right of the input box to generate a report. This should be done in the same conversation. You do not need to upload the files again.
+    * You should wait up to 300 seconds for the response to be generated. Take a screenshot every 30 seconds to confirm that the agent is still running by reading the text in the assistant response text box. When the agent is done it will display text and images that display the results of your query (or an error message if something went wrong).
+    * If a response of your original query is generated, you should input a new query "Generate a report" and click the send button (paper-plane-shaped) on the right of the input box to generate a report. This should be done in the same conversation. You do not need to upload the files again.
+    * Scroll to the bottom of the page after sending the "Generate a report" query to locate the response text box to this message, and repeat the waiting process for the report to be generated.
     * If you are not sure what to do, just stop and ask the user what to do. Do not stop if you are waiting for a response by OmicsWeb Copilot.
     * If any response indicates that an error occurred or that no files were uploaded, you should use the "plus" button on the top left of the page to start a new conversation and repeat the process, making sure to upload the files again.
 </IMPORTANT>
